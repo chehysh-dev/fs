@@ -1,0 +1,153 @@
+================================================================================
+Practical No. 3: React Introduction and JSX
+================================================================================
+
+--------------------------------------------------------------------------------
+A. Display "Welcome to MERN Stack Development"
+File: App.jsx
+--------------------------------------------------------------------------------
+function App() {
+  return (
+    <div>
+      <h1>Welcome to MERN Stack Development</h1>
+    </div>
+  );
+}
+
+export default App;
+
+--------------------------------------------------------------------------------
+B. Display Dynamic Data Using JSX
+File: App.jsx
+--------------------------------------------------------------------------------
+function App() {
+  const name = "Pradnya";
+  const course = "MERN Stack";
+
+  return (
+    <div>
+      <h1>Student Information</h1>
+      <p>Name: {name}</p>
+      <p>Course: {course}</p>
+    </div>
+  );
+}
+
+export default App;
+
+--------------------------------------------------------------------------------
+C. Declare Variables and Write a Function to Calculate the Sum of Two Numbers
+File: App.jsx
+--------------------------------------------------------------------------------
+function App() {
+  const num1 = 20;
+  const num2 = 30;
+
+  function calculateSum(a, b) {
+    return a + b;
+  }
+
+  return (
+    <div>
+      <h1>Addition Program</h1>
+      <p>Number 1: {num1}</p>
+      <p>Number 2: {num2}</p>
+      <p>Sum: {calculateSum(num1, num2)}</p>
+    </div>
+  );
+}
+
+export default App;
+
+--------------------------------------------------------------------------------
+D. Apply Basic CSS Styling to a React Component
+File: App.jsx & App.css
+--------------------------------------------------------------------------------
+// App.jsx
+import './App.css';
+
+function App() {
+  return (
+    <div className="container">
+      <h1>Welcome to MERN Stack</h1>
+      <p>Learning React Styling</p>
+    </div>
+  );
+}
+
+export default App;
+
+/* App.css */
+.container {
+  text-align: center;
+  margin-top: 50px;
+}
+h1 {
+  color: blue;
+}
+p {
+  font-size: 20px;
+}
+
+--------------------------------------------------------------------------------
+E. Create a Simple Functional Component and Render It in App.js
+Files: Student.jsx & App.jsx
+--------------------------------------------------------------------------------
+// Student.jsx
+function Student() {
+  return (
+    <div>
+      <h2>Student Component</h2>
+      <p>This is a Functional Component.</p>
+    </div>
+  );
+}
+
+export default Student;
+
+// App.jsx
+import Student from './Student';
+
+function App() {
+  return (
+    <div>
+      <h1>Main App Component</h1>
+      <Student />
+    </div>
+  );
+}
+
+export default App;
+
+--------------------------------------------------------------------------------
+F. Create a React Component that Displays the Current Date and Time Dynamically
+Files: DateTime.jsx & App.jsx
+--------------------------------------------------------------------------------
+// DateTime.jsx
+function DateTime() {
+  const currentDate = new Date();
+
+  return (
+    <div>
+      <h2>Current Date and Time</h2>
+      <p>Date: {currentDate.toLocaleDateString()}</p>
+      <p>Time: {currentDate.toLocaleTimeString()}</p>
+    </div>
+  );
+}
+
+export default DateTime;
+
+// App.jsx
+import DateTime from './DateTime';
+
+function App() {
+  return (
+    <div>
+      <h1>React Date and Time</h1>
+      <DateTime />
+    </div>
+  );
+}
+
+export default App;

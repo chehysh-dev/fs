@@ -1,0 +1,106 @@
+================================================================================
+Practical No. 2: Core JavaScript Concepts for MERN
+================================================================================
+
+--------------------------------------------------------------------------------
+A. functions.js - Functions with Parameters and Return Value
+--------------------------------------------------------------------------------
+function greet(name) {
+    console.log("Welcome " + name);
+}
+
+function add(a, b) {
+    return a + b;
+}
+
+greet("Pradnya");
+let result = add(10, 20);
+console.log("Sum =", result);
+
+--------------------------------------------------------------------------------
+B. arrayObject.js - Working with Arrays and Objects
+--------------------------------------------------------------------------------
+let fruits = ["Apple", "Mango", "Orange"];
+console.log("Fruits Array:");
+console.log(fruits);
+
+let student = {
+    name: "Rahul",
+    age: 20,
+    course: "MERN"
+};
+console.log("Student Details:");
+console.log(student);
+
+--------------------------------------------------------------------------------
+C. arrowFunction.js - Arrow Functions
+--------------------------------------------------------------------------------
+const square = (num) => num * num;
+
+const multiply = (a, b) => {
+    return a * b;
+};
+
+console.log("Square =", square(5));
+console.log("Multiplication =", multiply(4, 6));
+
+--------------------------------------------------------------------------------
+D. arrayMethods.js - Array Methods (map, filter, reduce)
+--------------------------------------------------------------------------------
+let numbers = [1, 2, 3, 4, 5];
+
+let squares = numbers.map(num => num * num);
+let evenNumbers = numbers.filter(num => num % 2 === 0);
+let total = numbers.reduce((sum, num) => sum + num, 0);
+
+console.log("Original Array:", numbers);
+console.log("Squares:", squares);
+console.log("Even Numbers:", evenNumbers);
+console.log("Sum:", total);
+
+--------------------------------------------------------------------------------
+E. objectManipulation.js - Object Property Manipulation
+--------------------------------------------------------------------------------
+let employee = {
+    id: 101,
+    name: "Amit",
+    salary: 40000
+};
+
+employee.salary = 50000;
+employee.department = "IT";
+console.log("Employee Details:");
+console.log(employee);
+
+delete employee.id;
+console.log("After Deleting ID:");
+console.log(employee);
+
+--------------------------------------------------------------------------------
+F. studentManagement.js - Functions, Arrays, and Objects Combined
+--------------------------------------------------------------------------------
+let students = [
+    { id: 1, name: "Rahul", marks: 80 },
+    { id: 2, name: "Priya", marks: 90 },
+    { id: 3, name: "Amit", marks: 70 }
+];
+
+function displayStudents(studentArray) {
+    studentArray.forEach(student => {
+        console.log(
+            `ID: ${student.id}, Name: ${student.name}, Marks: ${student.marks}`
+        );
+    });
+}
+
+function calculateAverage(studentArray) {
+    let totalMarks = studentArray.reduce(
+        (sum, student) => sum + student.marks,
+        0
+    );
+    return totalMarks / studentArray.length;
+}
+
+console.log("Student Details:");
+displayStudents(students);
+console.log("Average Marks =", calculateAverage(students));

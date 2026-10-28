@@ -1,0 +1,164 @@
+================================================================================
+Practical No. 4: React Components, Props, and State
+================================================================================
+
+--------------------------------------------------------------------------------
+A. Create Multiple Components and Render Them on a Single Page
+Files: Header.jsx, Footer.jsx, App.jsx
+--------------------------------------------------------------------------------
+// Header.jsx
+function Header() {
+  return <h1>Welcome to MERN Stack</h1>;
+}
+export default Header;
+
+// Footer.jsx
+function Footer() {
+  return <h3>Thank You for Visiting</h3>;
+}
+export default Footer;
+
+// App.jsx
+import Header from './Header';
+import Footer from './Footer';
+
+function App() {
+  return (
+    <div>
+      <Header />
+      <p>Learning React Components</p>
+      <Footer />
+    </div>
+  );
+}
+export default App;
+
+--------------------------------------------------------------------------------
+B. Pass Data Between Components Using Props
+Files: Student.jsx & App.jsx
+--------------------------------------------------------------------------------
+// Student.jsx
+function Student(props) {
+  return (
+    <div>
+      <h2>Student Details</h2>
+      <p>Name: {props.name}</p>
+      <p>Course: {props.course}</p>
+    </div>
+  );
+}
+export default Student;
+
+// App.jsx
+import Student from "./Student";
+
+function App() {
+  return (
+    <div>
+      <Student
+        name="Pradnya"
+        course="MERN Stack"
+      />
+    </div>
+  );
+}
+export default App;
+
+--------------------------------------------------------------------------------
+C. Use the useState Hook to Manage and Update Data
+File: App.jsx
+--------------------------------------------------------------------------------
+import { useState } from 'react';
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <h1>Counter Example</h1>
+      <h2>{count}</h2>
+      <button onClick={() => setCount(count + 1)}>
+        Increment
+      </button>
+    </div>
+  );
+}
+export default App;
+
+--------------------------------------------------------------------------------
+D. Create a Form Component to Accept User Input and Display It Dynamically
+File: App.jsx
+--------------------------------------------------------------------------------
+import { useState } from 'react';
+
+function App() {
+  const [name, setName] = useState('');
+
+  return (
+    <div>
+      <h1>User Form</h1>
+      <input
+        type="text"
+        placeholder="Enter Name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <h2>Hello {name}</h2>
+    </div>
+  );
+}
+export default App;
+
+--------------------------------------------------------------------------------
+E. Display a List of Items Stored in State Using map()
+File: App.jsx
+--------------------------------------------------------------------------------
+import { useState } from 'react';
+
+function App() {
+  const [fruits] = useState([
+    'Apple',
+    'Mango',
+    'Orange',
+    'Banana'
+  ]);
+
+  return (
+    <div>
+      <h1>Fruit List</h1>
+      <ul>
+        {fruits.map((fruit, index) => (
+          <li key={index}>{fruit}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+export default App;
+
+--------------------------------------------------------------------------------
+F. Build a Small Interactive Component (Counter Application)
+File: App.jsx
+--------------------------------------------------------------------------------
+import { useState } from 'react';
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <h1>Counter Application</h1>
+      <h2>{count}</h2>
+      <button onClick={() => setCount(count + 1)}>
+        Increment
+      </button>
+      <button onClick={() => setCount(count - 1)}>
+        Decrement
+      </button>
+      <button onClick={() => setCount(0)}>
+        Reset
+      </button>
+    </div>
+  );
+}
+export default App;

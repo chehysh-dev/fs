@@ -1,0 +1,100 @@
+================================================================================
+Practical 6: Node.js and Express Fundamentals
+================================================================================
+
+--------------------------------------------------------------------------------
+A. Install Express and Create a Simple Server
+File: server.js
+--------------------------------------------------------------------------------
+const express = require('express');
+const app = express();
+const PORT = 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+
+--------------------------------------------------------------------------------
+B. Display a Message on the Browser Using Server Response (res.send)
+File: server.js
+--------------------------------------------------------------------------------
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Welcome to Express Server');
+});
+
+app.listen(3000, () => {
+  console.log('Server Started');
+});
+
+--------------------------------------------------------------------------------
+C. Create Different Routes in Express (/, /about, /contact)
+File: server.js
+--------------------------------------------------------------------------------
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Home Page');
+});
+
+app.get('/about', (req, res) => {
+  res.send('About Page');
+});
+
+app.get('/contact', (req, res) => {
+  res.send('Contact Page');
+});
+
+app.listen(3000, () => {
+  console.log('Server Running');
+});
+
+--------------------------------------------------------------------------------
+D. Send a JSON Response from the Server (res.json)
+File: server.js
+--------------------------------------------------------------------------------
+const express = require('express');
+const app = express();
+
+app.get('/student', (req, res) => {
+  res.json({
+    id: 101,
+    name: 'Pradnya',
+    course: 'MERN Stack'
+  });
+});
+
+app.listen(3000, () => {
+  console.log('Server Running');
+});
+
+--------------------------------------------------------------------------------
+F. Complete Express Application (All Routes & JSON Endpoint)
+File: server.js
+--------------------------------------------------------------------------------
+const express = require('express');
+const app = express();
+const PORT = 3000;
+
+app.get('/', (req, res) => {
+  res.send('Welcome to Express');
+});
+
+app.get('/about', (req, res) => {
+  res.send('About Page');
+});
+
+app.get('/student', (req, res) => {
+  res.json({
+    id: 1,
+    name: 'Rahul',
+    course: 'MERN'
+  });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
+});

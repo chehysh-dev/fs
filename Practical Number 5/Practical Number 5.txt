@@ -1,0 +1,176 @@
+================================================================================
+Practical No. 5: React Routing and Data Handling
+================================================================================
+
+--------------------------------------------------------------------------------
+A. Configure React Router in main.jsx
+File: main.jsx
+--------------------------------------------------------------------------------
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import { BrowserRouter } from 'react-router-dom';
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
+
+--------------------------------------------------------------------------------
+B & C. Navigation Between Multiple Pages (Home, About, Contact)
+Files: pages/Home.jsx, pages/About.jsx, pages/Contact.jsx, App.jsx
+--------------------------------------------------------------------------------
+// pages/Home.jsx
+function Home() {
+  return <h2>Home Page</h2>;
+}
+export default Home;
+
+// pages/About.jsx
+function About() {
+  return <h2>About Page</h2>;
+}
+export default About;
+
+// pages/Contact.jsx
+function Contact() {
+  return <h2>Contact Page</h2>;
+}
+export default Contact;
+
+// App.jsx
+import { Link, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
+import Contact from './pages/Contact';
+
+function App() {
+  return (
+    <div>
+      <h1>React Router Example</h1>
+      <nav>
+        <Link to="/">Home</Link> |{' '}
+        <Link to="/about">About</Link> |{' '}
+        <Link to="/contact">Contact</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </div>
+  );
+}
+export default App;
+
+--------------------------------------------------------------------------------
+D. Fetch Sample Data from a Public API Using Axios
+File: App.jsx
+--------------------------------------------------------------------------------
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
+function App() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    axios.get('https://jsonplaceholder.typicode.com/users')
+      .then(response => {
+        setUsers(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }, []);
+
+  return (
+    <div>
+      <h1>User Data</h1>
+      {users.map(user => (
+        <p key={user.id}>{user.name}</p>
+      ))}
+    </div>
+  );
+}
+export default App;
+
+--------------------------------------------------------------------------------
+E. Display Fetched Data in Table Format
+File: App.jsx
+--------------------------------------------------------------------------------
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
+function App() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    axios.get('https://jsonplaceholder.typicode.com/users')
+      .then(response => setUsers(response.data));
+  }, []);
+
+  return (
+    <div>
+      <h1>User List</h1>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map(user => (
+            <tr key={user.id}>
+              <td>{user.id}</td>
+              <td>{user.name}</td>
+              <td>{user.email}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+export default App;
+
+--------------------------------------------------------------------------------
+F. Implement Search Functionality on Displayed Data
+File: App.jsx
+--------------------------------------------------------------------------------
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
+function App() {
+  const [users, setUsers] = useState([]);
+  const [search, setSearch] = useState('');
+
+  useEffect(() => {
+    axios.get('https://jsonplaceholder.typicode.com/users')
+      .then(response => setUsers(response.data));
+  }, []);
+
+  const filteredUsers = users.filter(user =>
+    user.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+  return (
+    <div>
+      <h1>User Search</h1>
+      <input
+        type="text"
+        placeholder="Search User"
+        value={search}
+        onChange={e => setSearch(e.target.value)}
+      />
+      <ul>
+        {filteredUsers.map(user => (
+          <li key={user.id}>{user.name}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+export default App;
