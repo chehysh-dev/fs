@@ -15,6 +15,7 @@ Comprehensive collection of Full-Stack Web Development practicals covering moder
 | **5** | **React Routing & Data Handling** | [`PRACTICAL5/`](./PRACTICAL5) | React Router DOM (`BrowserRouter`, `Routes`, `Route`, `Link`), Axios API fetching, table rendering, real-time live search |
 | **6** | **Node.js & Express Fundamentals** | [`PRACTICAL6/`](./PRACTICAL6) | Express web server, port configuration, routing (`/`, `/about`, `/contact`), JSON API response (`/student`) |
 | **7** | **MongoDB Basics & Mongoose** | [`PRACTICAL7/`](./PRACTICAL7) | MongoDB Community Server, Compass GUI CRUD operations, Mongoose connection, schema definition & document insertion |
+| **8** | **API Creation & Integration (Full MERN Flow)** | [`PRACTICAL8/`](./PRACTICAL8) | End-to-end MERN: React UI form, Axios POST/GET, Express REST API, MongoDB document storage & retrieval |
 
 ---
 
@@ -73,6 +74,20 @@ npm run dev
 
 ---
 
+### Practical 4: React Components, Props, and State
+Location: [`PRACTICAL4/`](./PRACTICAL4)
+- `practical4a/` – Modular layout with `<Header />` and `<Footer />`.
+- `practical4b/` – Passing props (`name`, `course`) to child components.
+- `practical4c/` to `Practical4f/` – Interactive components, props drilling, and state management.
+
+```bash
+cd PRACTICAL4/practical4a
+npm install
+npm run dev
+```
+
+---
+
 ### Practical 5: React Routing and Data Handling
 Location: [`PRACTICAL5/`](./PRACTICAL5)
 - `Practical5a/` – React Router setup with `<BrowserRouter>`, `<Routes>`, `<Route>`, `<Link>`, and pages (`Home`, `About`, `Contact`).
@@ -121,3 +136,24 @@ npm install
 node dbconnect.js
 node student.js
 ```
+
+---
+
+### Practical 8: API Creation and Integration (Complete MERN Stack Flow)
+Location: [`PRACTICAL8/`](./PRACTICAL8)
+- End-to-end full stack architecture connecting React UI, Express REST API, and MongoDB with Mongoose.
+- `backend/server.js` – Express API exposing `GET /students` and `POST /students` on port 5000.
+- `frontend/src/App.jsx` – React UI form sending Axios POST request and live rendering MongoDB student records.
+
+```bash
+# Start Backend
+cd PRACTICAL8/backend
+npm install
+node server.js
+
+# Start Frontend (in a separate terminal)
+cd PRACTICAL8/frontend
+npm install
+npm run dev
+```
+
